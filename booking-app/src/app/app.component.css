@@ -1,0 +1,42 @@
+/*!
+ * Start Bootstrap - Heroic Features (https://startbootstrap.com/templates/heroic-features)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-heroic-features/blob/master/LICENSE)
+ */
+ .nav-item{
+     padding:2px;
+     margin-left:  7px;
+ }
+
+ footer{
+ position: absolute;
+ right: 0;
+bottom: 0;
+left: 0;
+padding: 1rem;
+text-align: center;
+
+ }
+ .jumbotron{
+  background-image: url('stock-photo-real-estate-luxury-interior-and-exterior-design-pool-villa-with-living-room-at-night-sky-home-660324757.jpg');
+  height: calc(70vh);
+  text-align: center;
+  font-size: large;
+}
+.container{
+    height: calc(45vh);
+}
+.card-text, .card-title{
+    text-align: center;
+}
+.card-body{
+    height: 50%;
+    box-shadow: 4px 4px 20px solid gray;
+}
+.text-xs-center{
+    padding-top: 50px;
+    color: whitesmoke;
+    font-style: bold;
+}
+
+ 
