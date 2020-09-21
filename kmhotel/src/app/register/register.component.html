@@ -1,0 +1,68 @@
+<div *ngIf="!name;else forminfo">
+<form>
+<div class="form-conatainer">
+  <div class="row columns">
+    <h1>Personal Details</h1>
+
+    <label >Name
+      <input type="text" formControlName="name">
+    </label>
+    <label >Surname
+      <input type="text" formControlName="lname">
+    </label>
+    <label >Gender
+      <input type="text" formControlName="gender">
+    </label>
+    <label >Date of Birth
+      <input type="text" formControlName="dob">
+    </label>
+    <label >Email
+      <input type="text" formControlName="email">
+    </label>  <label >Cellphone
+      <input type="tel" formControlName="cellphone">
+    </label>  <label >Province
+      <input type="text" formControlName="province">
+    </label>
+  </div>
+
+</div>
+</form>
+</div>
+
+<ng-template #forminfo>
+  <div class="form-conatiner">
+    <div class="row columns">
+      <h1>Hotel</h1>
+
+      <label >Check in
+        <input type="date" formControlName="checkin">
+      </label>
+      <label >Check out
+        <input type="date" formControlName="checkout">
+      </label>
+      <label >room
+        <input type="number" formControlName="room">
+      </label>
+
+      <hr>
+      <h1>Bank Details</h1>
+      <label >Bank Name
+        <input type="text" formControlName="bankname">
+      </label>
+       <label >Account Holder
+        <input type="text" formControlName="accHolder">
+      </label>
+       <label >Card Number
+        <input type="number" formControlName="cardno">
+      </label>
+      <label >CVV
+        <input type="number" formControlName="cvv">
+      </label>
+      <label >Expire Date
+        <input type="date" formControlName="exDate">
+      </label>
+    </div>
+  </div>
+
+
+</ng-template>
