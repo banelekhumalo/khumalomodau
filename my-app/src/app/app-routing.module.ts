@@ -6,6 +6,7 @@ import { GalleryComponent } from './gallery';
 import { ContactComponent } from './contact';
 import { AboutUsComponent } from './about-us';
 
+
 const routes: Routes = [
 
   { path: '', component: HomeComponent },

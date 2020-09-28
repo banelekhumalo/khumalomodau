@@ -6,29 +6,48 @@
 </div>
 <div class="container ">
     
-<form>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 <div class="form-row">
     <div class="col">
-        <input type="text" class="form-control" placeholder="Name"><br>
+        <input type="text" formControlName="name" class="form-control" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"><br>
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">First Name is required</div>
+        </div>
     </div>
     <div class="col">
-        <input type="text" class="form-control" placeholder="Surname"><br>
+        <input type="text" class="form-control" placeholder="Surname" [ngClass]="{ 'is-invalid': submitted && f.surn.errors }"><br>
+        <div *ngIf="submitted && f.surn.errors" class="invalid-feedback">
+            <div *ngIf="f.surn.errors.required">Surname is required</div>
+        </div>
     </div>
 </div>
 <div class="form-row">
     <div class="col">
-        <input type="text" class="form-control" placeholder="Number"><br>
+        <input type="text" class="form-control" placeholder="Number" [ngClass]="{ 'is-invalid': submitted && f.numb.errors }"><br>
+        <div *ngIf="submitted && f.numb.errors" class="invalid-feedback">
+            <div *ngIf="f.numb.errors.required">Number is required</div>
+        </div>
     </div>
     <div class="col">
-        <input type="text" class="form-control" placeholder="Email"><br>
+        <input type="text" class="form-control" placeholder="Email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
     </div>
 </div>
     <div class="form-group">
-    <textarea rows="3" class="form-control" id="email" placeholder="Write Your Message"></textarea>
+    <textarea rows="3" class="form-control" id="email" placeholder="Write Your Message"  [ngClass]="{ 'is-invalid': submitted && f.messege.errors }">
+        </textarea>
+        <div *ngIf="submitted && f.messege.errors" class="invalid-feedback">
+            <div *ngIf="f.messege.errors.required">Message is required</div>
+        </div>
     </div>
 </form>
+<div class="text-center">
+    <button class="btn btn-success btn-block " style="width: 25%;" (click)="onSubmit()">Book Now</button>
+    <button class="btn btn-dark btn-block" style="width: 25%; padding-left: 10px;" type="reset" (click)="onReset()">Cancel</button>
+</div>
 
-<a class="btn btn-dark btn-block rounded" href="" role="button" >Submit</a>
 </div>
 
 <br>
