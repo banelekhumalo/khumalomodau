@@ -12,6 +12,7 @@ import { RegisterComponent } from './register';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { RegisterComponent } from './register';
     HomeComponent,
     AboutUsComponent,
     RegisterComponent
+    
   ],
   imports: [
     BrowserModule,
