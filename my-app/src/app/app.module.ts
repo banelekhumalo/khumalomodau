@@ -8,6 +8,7 @@ import { HomeComponent } from './home';
 import { GalleryComponent } from './gallery';
 import { ContactComponent } from './contact';
 import { AboutUsComponent } from './about-us';
+import { RegisterComponent } from './register';
 
 
 
@@ -17,8 +18,8 @@ import { AboutUsComponent } from './about-us';
     GalleryComponent,
     ContactComponent,
     HomeComponent,
-   
-    AboutUsComponent
+    AboutUsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
