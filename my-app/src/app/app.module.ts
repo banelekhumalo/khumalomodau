@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,9 @@ import { HomeComponent } from './home';
 import { GalleryComponent } from './gallery';
 import { ContactComponent } from './contact';
 import { AboutUsComponent } from './about-us';
+import { RegisterComponent } from './register';
+
+
 
 @NgModule({
   declarations: [
@@ -14,11 +18,14 @@ import { AboutUsComponent } from './about-us';
     GalleryComponent,
     ContactComponent,
     HomeComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
