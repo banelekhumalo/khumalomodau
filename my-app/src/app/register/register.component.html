@@ -3,16 +3,16 @@
     <h1>Personal Details</h1><br><br>
       <div style="margin-left: 20%;">
         <label>Name</label><br>
-        <input type="text" formControlName="name" placeholder="Enter your name">
+        <input type="text" formControlName="name" placeholder="Enter your name" required>
       </div>
       <div style="margin-left: 20%;">
         <label>Last Name</label><br>
-        <input type="text" formControlName="lname" placeholder="Enter your last name">
+        <input type="text" formControlName="lname" placeholder="Enter your last name" required>
       </div>
       <div style="margin-left: 20%">
         <label for="gender">Gender</label><br>
 
-        <select name="gender" id="gender">
+        <select name="gender" id="gender" required>
           <option>Male</option>
           <option>Female</option>
           <option>LGBQTI+</option>
@@ -20,28 +20,28 @@
       </div>
       <div style="margin-left: 20%;">
         <label>Date of birth</label><br>
-        <input type="date" formControlName="dob">
+        <input type="date" formControlName="dob" required>
       </div>
       <div style="margin-left: 20%;">
         <label>Cellphone</label><br>
-        <input type="tel" formControlName="cellphone" placeholder="Cellphone number">
+        <input type="tel" formControlName="cellphone" placeholder="Cellphone number"required>
       </div>
       <div style="margin-left: 20%;">
         <label>Email</label><br>
-        <input type="email" formControlName="email" placeholder="example@banele.co.za">
+        <input type="email" formControlName="email" placeholder="info@k_m-hotel.com"required>
       </div>
       <div style="margin-left: 20%">
         <label for="gender">Province</label><br>
 
-        <select formControlName="gender" id="gender">
+        <select formControlName="gender" id="gender" required>
           <option>Gauteng</option>
           <option>Western Cape</option>
           <option>KwaZulu NamNdiya Natal</option>
-          <option>Limpopo+</option>
-          <option>Mpumalanga+</option>
-          <option>Free State+</option>
-          <option>Eastern Cape+</option>
-          <option>Northern Cape+</option>
+          <option>Limpopo</option>
+          <option>Mpumalanga</option>
+          <option>Free State</option>
+          <option>Eastern Cape</option>
+          <option>Northern Cape</option>
           <option>North West</option>
           </select>
       </div>
@@ -61,16 +61,16 @@
 
         <div style="margin-left: 30%;">
           <label>Checkin Date</label><br>
-          <input type="date" formControlName="checkin">
+          <input type="date" formControlName="checkin" required>
         </div><br>
         <div style="margin-left: 30%;">
           <label>Checkout </label><br>
-          <input type="date" formControlName="checkout">
+          <input type="date" formControlName="checkout" required>
         </div><br>
         <div style="margin-left: 30%">
           <label for="suiteType">Suite Type</label><br>
 
-          <select name="suiteType" id="suiteType">
+          <select name="suiteType" id="suiteType" required>
             <option>None</option>
             <option>Deluxe Suite</option>
             <option>Standard Suite</option>
@@ -81,7 +81,7 @@
         <br>
         <div style="margin-left: 30%;">
           <label>Room </label><br>
-          <input type="number" formControlName="room">
+          <input type="number" formControlName="room" required>
         </div><br>
 
         <hr><br>
@@ -89,10 +89,11 @@
         <div style="margin-left: 30%">
           <label for="bankname">BANK</label><br>
 
-          <select name="bankname" id="bankname">
+          <select name="bankname" id="bankname" required>
             <option>None</option>
             <option>FNB</option>
             <option>Standard Bank</option>
+            <option>Tyme Bank</option>
             <option>Absa</option>
             <option>Capitec</option>
             <option>African Bank</option>
@@ -100,19 +101,19 @@
         </div>
         <div style="margin-left: 30%;">
           <label>Account Holder </label><br>
-          <input type="text" formControlName="accholder" placeholder="Name and Surname">
+          <input type="text" formControlName="accholder" placeholder="Name and Surname" required>
         </div>
         <div style="margin-left: 30%;">
           <label>Card Number </label><br>
-          <input type="number" formControlName="cardno" placeholder="0000 0000 0000 0000">
+          <input type="number" formControlName="cardno" placeholder="0000 0000 0000 0000" required>
         </div>
         <div style="margin-left: 30%;">
           <label>CVV </label><br>
-          <input type="number" formControlName="cvv" placeholder="123">
+          <input type="number" formControlName="cvv" placeholder="123" required>
         </div><br>
         <div style="margin-left: 30%;">
           <label>Expiry Date </label><br>
-          <input type="date" formControlName="cvv">
+          <input type="date" formControlName="cvv"required>
         </div><br>
         <div style="margin-left: 25%;">
           <input type="submit" class="button primary" value="Submit Form" [disabled]="rForm.valid">
@@ -122,7 +123,7 @@
 
 </ng-template>
 <!-------------Separate------------------>
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <div style="background-color: lightgray; color: darkred; font-size: medium;">
   <p>We thank you making your quotation, you will receive the email within 15min after we have proccessed your request!</p><br>
   <div style="margin-left:15%; color: red;">
@@ -138,7 +139,7 @@
     <p>Email:{{email}}</p>
     <p>Province:{{province}}</p>
     </div>
-        <div  style="background-color: red;color: black;margin-right: 40%;">
+        <div  style="background-color: lightgrey;color: black;margin-right: 40%;">
           <h4><b>Hotel Specification</b></h4>
           <p>Checkin date:{{checkin}}</p><br>
           <p>Checkout date:{{checkout}}</p><br>
@@ -147,7 +148,7 @@
 
         </div>
 
-        <div style="background-color: black;color: red;margin-right: 40%;">
+        <div style="background-color: lightgrey;color: red;margin-right: 40%;">
           <h4><b>Bank Details</b></h4>
           <p> Bank Name:{{bankname}}</p><br>
           <p> Account Holder:{{accholder}}</p><br>
