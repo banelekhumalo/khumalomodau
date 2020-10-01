@@ -1,11 +1,11 @@
-<div style="text-align: center;">
+<div style="text-align: center;font-family: Roboto;">
     <h2>Contact Us</h2>
     <hr style="width: 40%; ">
     <p>Have any questions? send us a message</p>
     </div>
     <div class="container ">
         
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" style="font-family: Roboto;">
     <div class="form-row">
         <div class="col">
             <input type="text" formControlName="name" class="form-control" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"><br>
@@ -50,7 +50,7 @@
     </div>
     
     <br>
-    <div style="text-align: center;">
+    <div style="text-align: center;font-family: Roboto;">
         <h2> Follow Us </h2>
         <hr style="width: 40%; ">
         <p>Want to see more? Follow our social pages</p>
