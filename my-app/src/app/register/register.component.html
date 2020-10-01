@@ -124,12 +124,12 @@
 </ng-template>
 <!-------------Separate------------------>
 <br><br><br><br><br><br><br><br>
-<div style="background-color: lightgray; color: darkred; font-size: medium;">
+<div style="background-color: lightgray; color: darkred; font-size: medium; font-family: Roboto;">
   <p>We thank you making your quotation, you will receive the email within 15min after we have proccessed your request!</p><br>
-  <div style="margin-left:15%; color: red;">
-    <p style="font-family: 'Times New Roman', Times, serif;font-style: oblique;font-size: medium;">These are the infomation we got from you, if there are other changes feel free to contact info@khumalomodau.co.za;
+  <div style="margin-left:15%;">
+    <p style="font-family: Roboto;font-size: medium;">These are the infomation we got from you, if there are other changes feel free to contact info@khumalomodau.co.za;
     </p><br>
-    <div style="background-color: black;margin-right: 40%;">
+    <div style="background-color: black;margin-right: 40%; font-family: Roboto;">
       <h4><b>Personal Details</b></h4>
       <p>Name:{{name}}</p>
     <p>Last Name:{{lname}}</p>
@@ -139,7 +139,7 @@
     <p>Email:{{email}}</p>
     <p>Province:{{province}}</p>
     </div>
-        <div  style="background-color: lightgrey;color: black;margin-right: 40%;">
+        <div  style="background-color: lightgrey;color: black;margin-right: 40%; font-family: Roboto;">
           <h4><b>Hotel Specification</b></h4>
           <p>Checkin date:{{checkin}}</p><br>
           <p>Checkout date:{{checkout}}</p><br>
@@ -148,7 +148,7 @@
 
         </div>
 
-        <div style="background-color: lightgrey;color: red;margin-right: 40%;">
+        <div style="background-color: lightgrey;color: red;margin-right: 40%; font-family: Roboto;">
           <h4><b>Bank Details</b></h4>
           <p> Bank Name:{{bankname}}</p><br>
           <p> Account Holder:{{accholder}}</p><br>
@@ -159,4 +159,4 @@
         </div>
   </div>
 </div>
-<button style="background-color: red;color: #fff; width: 40%;" routerLink="/" routerLinkActive="active">RESET</button>
+<div class="btn btn-dark btn-block" style="color: #fff; width: 40%;" routerLink="/" routerLinkActive="active">RESET</div>
