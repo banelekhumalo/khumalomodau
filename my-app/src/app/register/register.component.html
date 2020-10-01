@@ -1,15 +1,20 @@
 <div *ngIf="!name;else forminfo">
   <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-    <h1>Personal Details</h1><br><br>
-      <div style="margin-left: 20%;">
+    <div style="text-align: center;font-family: Roboto;">
+      <h2>Make Your Reservation</h2>
+      <hr style="width: 60%; ">
+      </div>
+      <h4 style="text-align: center;font-family: Roboto;">Personal Details</h4><br>
+      <div class="section">
+        <div style="margin-left: 20%; font-family: Roboto;">
         <label>Name</label><br>
         <input type="text" formControlName="name" placeholder="Enter your name" required>
       </div>
-      <div style="margin-left: 20%;">
+      <div style="margin-left: 20%; font-family: Roboto;">
         <label>Last Name</label><br>
         <input type="text" formControlName="lname" placeholder="Enter your last name" required>
       </div>
-      <div style="margin-left: 20%">
+      <div style="margin-left: 20%;font-family: Roboto">
         <label for="gender">Gender</label><br>
 
         <select name="gender" id="gender" required>
@@ -18,19 +23,19 @@
           <option>LGBQTI+</option>
           </select>
       </div>
-      <div style="margin-left: 20%;">
+      <div style="margin-left: 20%;font-family: Roboto">
         <label>Date of birth</label><br>
         <input type="date" formControlName="dob" required>
       </div>
-      <div style="margin-left: 20%;">
+      <div style="margin-left: 20%;font-family: Roboto">
         <label>Cellphone</label><br>
         <input type="tel" formControlName="cellphone" placeholder="Cellphone number"required>
       </div>
-      <div style="margin-left: 20%;">
+      <div style="margin-left: 20%;font-family: Roboto">
         <label>Email</label><br>
         <input type="email" formControlName="email" placeholder="info@k_m-hotel.com"required>
       </div>
-      <div style="margin-left: 20%">
+      <div style="margin-left: 20%;font-family: Roboto">
         <label for="gender">Province</label><br>
 
         <select formControlName="gender" id="gender" required>
@@ -45,9 +50,10 @@
           <option>North West</option>
           </select>
       </div>
+      </div>
       <br><br>
 
-      <div style="margin-left: 25%;">
+      <div style="margin-left: 25%;font-family: Roboto">
         <input type="submit" class="button primary" value="Submit Form" [disabled]="rForm.valid">
       </div><br><br>
   </form>
@@ -57,17 +63,17 @@
 
     <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
       <h1>Welcome &nbsp; {{name}}</h1><br>
-      <h4>Hotel Specification</h4><br><br>
+      <h4 style="text-align: center;font-family: Roboto;">Room Details</h4><br>
 
-        <div style="margin-left: 30%;">
+        <div style="margin-left: 30%;font-family: Roboto">
           <label>Checkin Date</label><br>
           <input type="date" formControlName="checkin" required>
         </div><br>
-        <div style="margin-left: 30%;">
+        <div style="margin-left: 30%;font-family: Roboto">
           <label>Checkout </label><br>
           <input type="date" formControlName="checkout" required>
         </div><br>
-        <div style="margin-left: 30%">
+        <div style="margin-left: 30%;font-family: Roboto">
           <label for="suiteType">Suite Type</label><br>
 
           <select name="suiteType" id="suiteType" required>
@@ -79,14 +85,14 @@
             </select>
         </div>
         <br>
-        <div style="margin-left: 30%;">
+        <div style="margin-left: 30%;font-family: Roboto">
           <label>Room </label><br>
           <input type="number" formControlName="room" required>
         </div><br>
 
         <hr><br>
-        <h4>Bank Details</h4><br><br>
-        <div style="margin-left: 30%">
+        <h4 style="text-align: center;font-family: Roboto;">Banking Details</h4><br>
+        <div style="margin-left: 30%;font-family: Roboto">
           <label for="bankname">BANK</label><br>
 
           <select name="bankname" id="bankname" required>
@@ -99,23 +105,23 @@
             <option>African Bank</option>
             </select>
         </div>
-        <div style="margin-left: 30%;">
+        <div style="margin-left: 30%;font-family: Roboto">
           <label>Account Holder </label><br>
           <input type="text" formControlName="accholder" placeholder="Name and Surname" required>
         </div>
-        <div style="margin-left: 30%;">
+        <div style="margin-left: 30%; font-family: Roboto">
           <label>Card Number </label><br>
           <input type="number" formControlName="cardno" placeholder="0000 0000 0000 0000" required>
         </div>
-        <div style="margin-left: 30%;">
+        <div style="margin-left: 30%; font-family: Roboto">
           <label>CVV </label><br>
           <input type="number" formControlName="cvv" placeholder="123" required>
         </div><br>
-        <div style="margin-left: 30%;">
+        <div style="margin-left: 30%;font-family: Roboto">
           <label>Expiry Date </label><br>
           <input type="date" formControlName="cvv"required>
         </div><br>
-        <div style="margin-left: 25%;">
+        <div style="margin-left: 25%;font-family: Roboto">
           <input type="submit" class="button primary" value="Submit Form" [disabled]="rForm.valid">
         </div><br><br>
         </form>
@@ -123,13 +129,13 @@
 
 </ng-template>
 <!-------------Separate------------------>
-<br><br><br><br><br><br><br><br>
-<div style="background-color: lightgray; color: darkred; font-size: medium; font-family: Roboto;">
+<br><br><br><br><br>
+<div style="background-color: lightgray; color: black; font-size: medium; font-family: Roboto;">
   <p>We thank you making your quotation, you will receive the email within 15min after we have proccessed your request!</p><br>
   <div style="margin-left:15%;">
     <p style="font-family: Roboto;font-size: medium;">These are the infomation we got from you, if there are other changes feel free to contact info@khumalomodau.co.za;
     </p><br>
-    <div style="background-color: black;margin-right: 40%; font-family: Roboto;">
+    <div style="background-color: lightgray;margin-right: 40%; font-family: Roboto;">
       <h4><b>Personal Details</b></h4>
       <p>Name:{{name}}</p>
     <p>Last Name:{{lname}}</p>
@@ -148,7 +154,7 @@
 
         </div>
 
-        <div style="background-color: lightgrey;color: red;margin-right: 40%; font-family: Roboto;">
+        <div style="background-color: lightgrey;color:black;margin-right: 40%; font-family: Roboto;">
           <h4><b>Bank Details</b></h4>
           <p> Bank Name:{{bankname}}</p><br>
           <p> Account Holder:{{accholder}}</p><br>
