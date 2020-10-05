@@ -5,40 +5,57 @@
       <hr style="width: 60%; ">
       </div>
       <h4 style="text-align: center;font-family: Roboto;">Personal Details</h4><br>
-      <div class="section">
-        <div style="margin-left: 20%; font-family: Roboto;">
+      <div class="container">
+        <div class="form-row">
+        <div class="col">
+          <div style=" font-family: Roboto;">
         <label>Name</label><br>
-        <input type="text" formControlName="name" placeholder="Enter your name" required>
+        <input type="text" class="form-control" formControlName="name" placeholder="Enter your name" required>
       </div>
-      <div style="margin-left: 20%; font-family: Roboto;">
+      </div>
+      <div class="col">
+      <div style="font-family: Roboto;">
         <label>Last Name</label><br>
-        <input type="text" formControlName="lname" placeholder="Enter your last name" required>
+        <input type="text" class="form-control" formControlName="lname" placeholder="Enter your last name" required>
       </div>
-      <div style="margin-left: 20%;font-family: Roboto">
-        <label for="gender">Gender</label><br>
-
-        <select name="gender" id="gender" required>
+      </div>
+        <div class="col">
+          <div style="font-family: Roboto">
+          <label for="gender">Gender</label><br>
+          <select class="form-control" name="gender" id="gender" required>
           <option>Male</option>
           <option>Female</option>
           <option>LGBQTI+</option>
           </select>
       </div>
-      <div style="margin-left: 20%;font-family: Roboto">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+      <div style="font-family: Roboto">
         <label>Date of birth</label><br>
-        <input type="date" formControlName="dob" name="dob" [max]="getToday()">
+        <input type="date" class="form-control" formControlName="dob" name="dob" [max]="getToday()">
       </div>
-      <div style="margin-left: 20%;font-family: Roboto">
+      </div>
+    <div class="col">
+      <div style="font-family: Roboto">
         <label>Cellphone</label><br>
-        <input type="tel" formControlName="cellphone" placeholder="Cellphone number"required>
+        <input type="tel" class="form-control" formControlName="cellphone" placeholder="Cellphone number"required>
       </div>
-      <div style="margin-left: 20%;font-family: Roboto">
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="col">
+      <div style="font-family: Roboto">
         <label>Email</label><br>
-        <input type="email" formControlName="email" placeholder="info@k_m-hotel.com"required>
+        <input type="email" class="form-control" formControlName="email" placeholder="info@k_m-hotel.com"required>
       </div>
-      <div style="margin-left: 20%;font-family: Roboto">
+    </div>
+  <div class="col">
+      <div style="font-family: Roboto">
         <label for="gender">Province</label><br>
 
-        <select formControlName="gender" id="gender" required>
+        <select class="form-control" formControlName="gender" id="gender" required>
           <option>Gauteng</option>
           <option>Western Cape</option>
           <option>KwaZulu NamNdiya Natal</option>
@@ -51,10 +68,12 @@
           </select>
       </div>
       </div>
+  </div>
+      </div>
       <br><br>
 
-      <div style="margin-left: 25%;font-family: Roboto">
-        <input type="submit" class="button primary" value="Submit Form" [disabled]="rForm.valid">
+      <div style="width: 25%; padding-left: 8%; font-family: Roboto">
+        <input type="submit" class="btn btn-success btn-block" value="Submit Form" [disabled]="rForm.valid">
       </div><br><br>
   </form>
 </div>
