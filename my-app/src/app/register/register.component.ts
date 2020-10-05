@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     cellphone: number;
     email: string ='';
     province: string = '';
+    disablePastDates = true;
     checkin: Date;
     checkout: Date;
     suiteType: string='';
@@ -71,6 +72,12 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+   
   }
+  
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
 
 }
