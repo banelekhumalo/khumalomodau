@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { RegisterComponent } from './register';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MDBBootstrapModule.forRoot(),
     ReactiveFormsModule
     
   ],
