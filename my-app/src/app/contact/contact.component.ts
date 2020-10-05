@@ -28,10 +28,10 @@ export class ContactComponent implements OnInit {
         // stop here if form is invalid
         if (this.contactForm.invalid) {
             return;
-        }
+        }else
 
         // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.contactForm.value, null, 4));
+        alert('SUCCESS!! :-)\n\n' + JSON.stringify('Thank you for contacting us, our team will get back to you soon'));
     }
 
     onReset() {
