@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -19,36 +20,35 @@ export class RegisterComponent implements OnInit {
     cellphone: number;
     email: string ='';
     province: string = '';
-    disablePastDates = true;
     checkin: Date;
     checkout: Date;
     suiteType: string='';
-    room: number;
+    room: string;
     bankname: string='';
     accholder: string= '';
-    cardno: number;
-    cvv: number;
+    cardno: string;
+    cvv: string;
     exDate: Date;
 
 
     constructor(private fb:FormBuilder)
     {
         this.rForm = fb.group({
-          'name':[null,Validators.required],
-          'lname': [null,Validators.required],
+          'name':[null,[Validators.required,Validators.minLength(2)]],
+          'lname': [null,[Validators.required,Validators.minLength(2)]],
           'gender':[null,Validators.required],
           'dob':[null,Validators.required],
-          'cellphone':[null,Validators.required],
-          'email':[null,Validators.required],
+          'cellphone':[null,[Validators.required,Validators.minLength(10)]],
+          'email':[null,[Validators.required,Validators.minLength(10)]],
           'province': [null,Validators.required],
           'checkin': [null,Validators.required],
           'checkout':[null,Validators.required],
           'suiteType':[null,Validators.required],
-          'room':[null,Validators.required],
-          'bankname':[null,Validators.required],
-          'accholder':[null,Validators.required],
-          'cardno':[null,Validators.required],
-          'cvv':[null,Validators.required],
+          'room':[null,[Validators.required,Validators.maxLength(1)]],
+          'bankname':[null,[Validators.required,Validators.minLength(2)]],
+          'accholder':[null,[Validators.required,Validators.minLength(2)]],
+          'cardno':[null,[Validators.required,Validators.minLength(16),Validators.maxLength(16)]],
+          'cvv':[null,[Validators.required,Validators.minLength(3),Validators.maxLength(3)]],
           'exDate': [null,Validators.required]
         });
     }
@@ -72,12 +72,9 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
-   
   }
-  
-  getToday(): string {
-    return new Date().toISOString().split('T')[0]
- }
+ getToday(): string{
+return new Date().toISOString().split('T')[0]
+}
 
 }
