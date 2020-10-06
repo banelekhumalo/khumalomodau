@@ -1,0 +1,215 @@
+
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+    <div style="text-align: center;font-family: Roboto;">
+      <h2>Make Your Reservation</h2>
+      <hr style="width: 60%; ">
+      </div>
+      <h4 style="text-align: center;font-family: Roboto;">Personal Details</h4><br>
+      <div class="container">
+        <div class="form-row">
+        <div class="col">
+          <div style="font-family: Roboto;">
+       <input type="text" class="form-control" formControlName="name" placeholder="First Name"required>
+       <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+        This is required
+      </div>
+      </div>
+        </div>
+      <div class="col">
+          <div style="font-family: Roboto">
+          <input type="text" class="form-control" formControlName="lname" placeholder="Last Name"required>
+          <div class="alert" *ngIf="!rForm.controls['lname'].valid && rForm.controls['lname'].touched">
+          Last name is required
+          </div>
+          </div>
+      </div>
+      <div class="col">
+      <div style="font-family: Roboto">
+         <select type="text"  class="form-control" placeholder="Gender" name="gender" id="gender" required>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Rather not say</option>
+          </select>
+          <div class="alert" *ngIf="!rForm.controls['gender'].valid && rForm.controls['gender'].touched">
+            Choose one option
+          </div>
+      </div>
+      </div>
+        </div> 
+        <br>
+    <div class="form-row">
+    <div class="col">
+      <div style="font-family: Roboto">
+      <input type="date" class="form-control" placeholder="Date of Birth" formControlName="dob" [max]="getToday()" required>
+      <div class="alert" *ngIf="!rForm.controls['dob'].valid && rForm.controls['dob'].touched">
+        Select the right date
+      </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div style="font-family: Roboto">
+        <input type="tel" class="form-control" formControlName="cellphone" placeholder="Cellphone number"required>
+        <div class="alert" *ngIf="!rForm.controls['cellphone'].valid && rForm.controls['cellphone'].touched">
+        Minimum of ten characters.
+      </div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-row">
+    <div class="col">
+      <div style="font-family: Roboto">
+        <input type="email" class="form-control" formControlName="email" placeholder="info@k_m-hotel.com"required>
+      <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+        This field must be filled, correct format for example info@khumalomodauhotel.co.za
+      </div>
+      </div>
+      </div>
+      
+      <div class="col">
+      <div style="font-family: Roboto">
+          <select type="text" class="form-control" formControlName="province" placeholder="Province" id="province" required>
+          <option>Gauteng</option>
+          <option>Western Cape</option>
+          <option>KwaZulu NamNdiya Natal</option>
+          <option>Limpopo</option>
+          <option>Mpumalanga</option>
+          <option>Free State</option>
+          <option>Eastern Cape</option>
+          <option>Northern Cape</option>
+          <option>North West</option>
+          </select>
+      <div class="alert" *ngIf="!rForm.controls['province'].valid && rForm.controls['province'].touched">
+        Choose a province
+      </div>
+      </div>
+      </div></div>
+    </div></form>
+   <br><br>
+
+   <div style="width: 25%; padding-left: 8%; font-family: Roboto">
+        <input type="submit" class="btn btn-success btn-block" value="Submit Form" [disabled]="rForm.valid">
+      </div><br><br>
+  
+
+
+<ng-template #forminfo>
+
+    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+      <div style="text-align: center;font-family: Roboto;">
+        <h2>Welcome {{name}}</h2>
+        <hr style="width: 60%; ">
+        </div>
+       <h4 style="text-align: center;font-family: Roboto;">Room Details</h4><br>
+<div class="form-row">
+        <div class="col">
+        <div style="font-family: Roboto">
+          <input type="date" class="form-control" placeholder="Check-in Date" formControlName="checkin" [min]="getToday()" required>
+        </div></div>
+        <br>
+        <div class="col">
+        <div style="font-family: Roboto">
+         <input type="date" class="form-control" placeholder="Check-out Date" formControlName="checkout" [min]="getToday()" required>
+        </div></div></div>
+        <br>
+        <div class="form-row">
+          <div class="col">
+          <div style="font-family: Roboto">
+          <select type="text"  class="form-control" name="suiteType" placeholder="Suite Type" id="suiteType" required>
+            <option>None</option>
+            <option>Deluxe Suite</option>
+            <option>Standard Suite</option>
+            <option>Superior Suite</option>
+          </select>
+        </div></div>
+        
+       <div class="col">
+        <div style="font-family: Roboto">
+        <input type="number"  class="form-control"  placeholder="Number Of Rooms" formControlName="room" required>
+        <div class="alert" *ngIf="!rForm.controls['room'].valid && rForm.controls['room'].touched">
+          Choose the number of room(s)
+        </div></div></div></div><br>
+
+        <hr><br>
+        <h4 style="text-align: center;font-family: Roboto;">Banking Details</h4><br>
+        <div class="form-row">
+          <div class="col">
+          <div style="font-family: Roboto">
+          <select type="text"  class="form-control"  placeholder="Bank" name="bankname" id="bankname" required>
+            <option>None</option>
+            <option>FNB</option>
+            <option>Standard Bank</option>
+            <option>Tyme Bank</option>
+            <option>Absa</option>
+            <option>Capitec</option>
+            <option>African Bank</option>
+            </select>
+        </div></div>
+        <div class="col">
+        <div style="font-family: Roboto">
+          <input type="text"  class="form-control" formControlName="accholder" placeholder="Acc Holder Name" required>
+        </div></div></div>
+        <br>
+        <div class="form-row">
+        <div class="col">
+        <div style=" font-family: Roboto">
+          <input type="number"  class="form-control" formControlName="cardno" placeholder="Enter Card Number" required>
+        </div></div>
+        <div class="col">
+        <div style="font-family: Roboto">
+          <input type="number"  class="form-control" formControlName="cvv" placeholder="Enter CVV" required>
+        </div>
+      </div></div>
+        <br>
+        <div class="form-row">
+        <div class="col">
+        <div style="font-family: Roboto">
+         <input type="date" class="form-control" placeholder="Enter Expiry Date" formControlName="cvv" [min]="getToday()" required>
+        </div></div></div>
+        <br>
+        <div style="margin-left: 25%;font-family: Roboto">
+          <input type="submit" class="btn btn-success btn-block" value="Submit Form" [disabled]="rForm.valid">
+        </div><br><br>
+        </form>
+
+
+</ng-template>
+<!-------------Separate------------------>
+<br><br><br><br><br>
+<div style="background-color: lightgray; color: black; font-size: medium; font-family: Roboto;">
+  <p>We thank you making your quotation, you will receive the email within 15min after we have proccessed your request!</p><br>
+  <div style="margin-left:15%;">
+    <p style="font-family: Roboto;font-size: medium;">These are the infomation we got from you, if there are other changes feel free to contact info@khumalomodau.co.za;
+    </p><br>
+    <div style="background-color: lightgray;margin-right: 40%; font-family: Roboto;">
+      <h4><b>Personal Details</b></h4>
+      <p>Name:{{name}}</p>
+    <p>Last Name:{{lname}}</p>
+    <p>Gender:{{gender}}</p>
+    <p>Date of Birth:{{dob}}</p>
+    <p>Cellphone:{{cellphone}}</p>
+    <p>Email:{{email}}</p>
+    <p>Province:{{province}}</p>
+    </div>
+        <div  style="background-color: lightgrey;color: black;margin-right: 40%; font-family: Roboto;">
+          <h4><b>Hotel Specification</b></h4>
+          <p>Checkin date:{{checkin}}</p><br>
+          <p>Checkout date:{{checkout}}</p><br>
+          <p>Suite Type:{{suiteType}}</p><br>
+          <p>Number of rooms:{{room}}</p><br>
+
+        </div>
+
+        <div style="background-color: lightgrey;color:black;margin-right: 40%; font-family: Roboto;">
+          <h4><b>Bank Details</b></h4>
+          <p> Bank Name:{{bankname}}</p><br>
+          <p> Account Holder:{{accholder}}</p><br>
+          <p>Card Number:{{cardno}}</p><br>
+          <p>CVV:{{cvv}}</p><br>
+          <p>Expiry Date: {{exDate}}</p>
+
+        </div>
+  </div>
+</div>
+<div class="btn btn-dark btn-block" style="color: #fff; width: 40%;" routerLink="/" routerLinkActive="active">RESET</div>
