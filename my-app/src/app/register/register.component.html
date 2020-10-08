@@ -1,75 +1,63 @@
-
+<div *ngIf="!name;else forminfo">
   <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
     <div style="text-align: center;font-family: Roboto;">
       <h2>Make Your Reservation</h2>
       <hr style="width: 60%; ">
       </div>
       <h4 style="text-align: center;font-family: Roboto;">Personal Details</h4><br>
-      <div class="container">
-        <div class="form-row">
-        <div class="col">
-          <div style="font-family: Roboto;">
-       <input type="text" class="form-control" formControlName="name" placeholder="First Name"required>
-       <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+      <div class="section">
+        <div style="margin-left: 20%; font-family: Roboto;">
+        <label>Name</label><br>
+        <input type="text" formControlName="name" placeholder="Enter your name" required>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
         This is required
       </div>
+      <div style="margin-left: 20%; font-family: Roboto;">
+        <label>Last Name</label><br>
+        <input type="text" formControlName="lname" placeholder="Enter your last name" required>
       </div>
-        </div>
-      <div class="col">
-          <div style="font-family: Roboto">
-          <input type="text" class="form-control" formControlName="lname" placeholder="Last Name"required>
-          <div class="alert" *ngIf="!rForm.controls['lname'].valid && rForm.controls['lname'].touched">
-          Last name is required
-          </div>
-          </div>
+      <div class="alert" *ngIf="!rForm.controls['lname'].valid && rForm.controls['lname'].touched">
+        Last name is required
       </div>
-      <div class="col">
-      <div style="font-family: Roboto">
-         <select type="text"  class="form-control" placeholder="Gender" name="gender" id="gender" required>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label for="gender">Gender</label><br>
+
+        <select type="text" name="gender" id="gender" required>
           <option>Male</option>
           <option>Female</option>
           <option>Rather not say</option>
           </select>
-          <div class="alert" *ngIf="!rForm.controls['gender'].valid && rForm.controls['gender'].touched">
-            Choose one option
-          </div>
       </div>
+      <div class="alert" *ngIf="!rForm.controls['gender'].valid && rForm.controls['gender'].touched">
+        Choose one option
       </div>
-        </div> 
-        <br>
-    <div class="form-row">
-    <div class="col">
-      <div style="font-family: Roboto">
-      <input type="date" class="form-control" placeholder="Date of Birth" formControlName="dob" [max]="getToday()" required>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label>Date of birth</label><br>
+        <input type="date" formControlName="dob" required>
+      </div>
       <div class="alert" *ngIf="!rForm.controls['dob'].valid && rForm.controls['dob'].touched">
         Select the right date
       </div>
-      </div>
-    </div>
 
-    <div class="col">
-        <div style="font-family: Roboto">
-        <input type="tel" class="form-control" formControlName="cellphone" placeholder="Cellphone number"required>
-        <div class="alert" *ngIf="!rForm.controls['cellphone'].valid && rForm.controls['cellphone'].touched">
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label>Cellphone</label><br>
+        <input type="tel" formControlName="cellphone" placeholder="Cellphone number"required>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['cellphone'].valid && rForm.controls['cellphone'].touched">
         Minimum of ten characters.
       </div>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label>Email</label><br>
+        <input type="email" formControlName="email" placeholder="info@k_m-hotel.com"required>
       </div>
-      </div>
-    </div>
-    <br>
-    <div class="form-row">
-    <div class="col">
-      <div style="font-family: Roboto">
-        <input type="email" class="form-control" formControlName="email" placeholder="info@k_m-hotel.com"required>
       <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
         This field must be filled, correct format for example info@khumalomodauhotel.co.za
       </div>
-      </div>
-      </div>
-      
-      <div class="col">
-      <div style="font-family: Roboto">
-          <select type="text" class="form-control" formControlName="province" placeholder="Province" id="province" required>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label for="gender">Province</label><br>
+
+        <select type="text" formControlName="province" id="province" required>
           <option>Gauteng</option>
           <option>Western Cape</option>
           <option>KwaZulu NamNdiya Natal</option>
@@ -80,63 +68,60 @@
           <option>Northern Cape</option>
           <option>North West</option>
           </select>
+      </div>
       <div class="alert" *ngIf="!rForm.controls['province'].valid && rForm.controls['province'].touched">
         Choose a province
       </div>
       </div>
-      </div></div>
-    </div></form>
-   <br><br>
+      <br><br>
 
-   <div style="width: 25%; padding-left: 8%; font-family: Roboto">
-        <input type="submit" class="btn btn-success btn-block" value="Submit Form" [disabled]="rForm.valid">
+      <div style="margin-left: 25%;font-family: Roboto">
+        <input type="submit" class="button primary" value="Submit Form" [disabled]="rForm.valid">
       </div><br><br>
-  
-
+  </form>
+</div>
 
 <ng-template #forminfo>
 
     <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-      <div style="text-align: center;font-family: Roboto;">
-        <h2>Welcome {{name}}</h2>
-        <hr style="width: 60%; ">
-        </div>
-       <h4 style="text-align: center;font-family: Roboto;">Room Details</h4><br>
-<div class="form-row">
-        <div class="col">
-        <div style="font-family: Roboto">
-          <input type="date" class="form-control" placeholder="Check-in Date" formControlName="checkin" [min]="getToday()" required>
-        </div></div>
-        <br>
-        <div class="col">
-        <div style="font-family: Roboto">
-         <input type="date" class="form-control" placeholder="Check-out Date" formControlName="checkout" [min]="getToday()" required>
-        </div></div></div>
-        <br>
-        <div class="form-row">
-          <div class="col">
-          <div style="font-family: Roboto">
-          <select type="text"  class="form-control" name="suiteType" placeholder="Suite Type" id="suiteType" required>
+      <h1>Welcome &nbsp; {{name}}</h1><br>
+      <h4 style="text-align: center;font-family: Roboto;">Room Details</h4><br>
+
+        <div style="margin-left: 30%;font-family: Roboto">
+          <label>Checkin Date</label><br>
+          <input type="date" formControlName="checkin" required>
+        </div><br>
+        <div style="margin-left: 30%;font-family: Roboto">
+          <label>Checkout </label><br>
+          <input type="date" formControlName="checkout" required>
+        </div><br>
+        <div style="margin-left: 30%;font-family: Roboto">
+          <label for="suiteType">Suite Type</label><br>
+
+          <select type="text" name="suiteType" id="suiteType" required>
             <option>None</option>
             <option>Deluxe Suite</option>
             <option>Standard Suite</option>
             <option>Superior Suite</option>
-          </select>
-        </div></div>
-        
-       <div class="col">
-        <div style="font-family: Roboto">
-        <input type="number"  class="form-control"  placeholder="Number Of Rooms" formControlName="room" required>
+
+            </select>
+        </div>
+        <br>
+        <div style="margin-left: 30%;font-family: Roboto">
+          <label>Room </label><br>
+          <input type="number" formControlName="room" required>
+        </div>
+
         <div class="alert" *ngIf="!rForm.controls['room'].valid && rForm.controls['room'].touched">
-          Choose the number of room(s)
-        </div></div></div></div><br>
+          Choosoe the number of room(s)
+        </div><br>
 
         <hr><br>
         <h4 style="text-align: center;font-family: Roboto;">Banking Details</h4><br>
-        <div class="form-row">
-          <div class="col">
-          <div style="font-family: Roboto">
-          <select type="text"  class="form-control"  placeholder="Bank" name="bankname" id="bankname" required>
+        <div style="margin-left: 30%;font-family: Roboto">
+          <label for="bankname">BANK</label><br>
+
+          <select type="text" name="bankname" id="bankname" required>
             <option>None</option>
             <option>FNB</option>
             <option>Standard Bank</option>
@@ -144,32 +129,30 @@
             <option>Absa</option>
             <option>Capitec</option>
             <option>African Bank</option>
+            <option>International Bank</option>
             </select>
-        </div></div>
-        <div class="col">
-        <div style="font-family: Roboto">
-          <input type="text"  class="form-control" formControlName="accholder" placeholder="Acc Holder Name" required>
-        </div></div></div>
-        <br>
-        <div class="form-row">
-        <div class="col">
-        <div style=" font-family: Roboto">
-          <input type="number"  class="form-control" formControlName="cardno" placeholder="Enter Card Number" required>
-        </div></div>
-        <div class="col">
-        <div style="font-family: Roboto">
-          <input type="number"  class="form-control" formControlName="cvv" placeholder="Enter CVV" required>
         </div>
-      </div></div>
-        <br>
-        <div class="form-row">
-        <div class="col">
-        <div style="font-family: Roboto">
-         <input type="date" class="form-control" placeholder="Enter Expiry Date" formControlName="cvv" [min]="getToday()" required>
-        </div></div></div>
-        <br>
+        <div class="alert" *ngIf="!rForm.controls['bankname'].valid && rForm.controls['bankname'].touched">
+        Select at least one bank
+      </div>
+        <div style="margin-left: 30%;font-family: Roboto">
+          <label>Account Holder </label><br>
+          <input type="text" formControlName="accholder" placeholder="Name and Surname" required>
+        </div>
+        <div style="margin-left: 30%; font-family: Roboto">
+          <label>Card Number </label><br>
+          <input type="number" formControlName="cardno" placeholder="0000 0000 0000 0000" required>
+        </div>
+        <div style="margin-left: 30%; font-family: Roboto">
+          <label>CVV </label><br>
+          <input type="number" formControlName="cvv" placeholder="123" required>
+        </div><br>
+        <div style="margin-left: 30%;font-family: Roboto">
+          <label>Expiry Date </label><br>
+          <input type="date" formControlName="cvv"required>
+        </div><br>
         <div style="margin-left: 25%;font-family: Roboto">
-          <input type="submit" class="btn btn-success btn-block" value="Submit Form" [disabled]="rForm.valid">
+          <input type="submit" class="button primary" value="Submit Form" [disabled]="rForm.valid">
         </div><br><br>
         </form>
 

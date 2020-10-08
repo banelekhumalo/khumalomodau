@@ -1,0 +1,65 @@
+I have created a service component on my dummy project, that is workService.
+
+I am sharing my ts class function
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class WorkService
+{
+  findAll():string[]{
+    if(localStorage.getItem('totoList') !=null)
+      {
+        return JSON.parse(localStorage.getItem('totoList'));
+      }
+    return null;
+  }
+  add(name: string):void
+  {
+      if(localStorage.getItem('totoList') == null)
+        {
+          let list: string [] = [];
+          list.push(name);
+          localStorage.setItem('totoList', JSON.stringify(list));
+        } else
+        {
+            let list: string [] = JSON.parse(localStorage.getItem('totoListt'));
+            list.push(name);
+            localStorage.setItem('totoList',JSON.stringify(list));
+        }
+    }
+    delete(index: number): void {
+      let list: string[] =JSON.parse(localStorage.getItem('totoList'));
+      list.splice(index,1);
+    }
+
+}
+---------------------------------------------------------------------------------------------
+
+From oup app.component.ts we should add another function
+
+--Declaration inside the class
+rForm: FormGroup;
+works: string[];
+constructor(
+private workService: WorkService,
+private formBuilder: FormBuilder
+){}
+
+
+ngOnInit(){
+this.rForm = this.formBuilder.group({
+name:['',[Validators.required]]
+});
+this.works = this.workService.FindAll();
+
+----
+add():void{
+this.workService.add(this.rForm.value.name);
+}
+--------------------------------------------------------------
+from our html file, we need to create a separate form for submit so that
+we are able to capture the personal details of teh user.
+
+<form [formGroup]="rForm" (ngSubmit)="add()">
+<input type="text" formControlName=:"name" id="myInput" placeholder="Registered user">
+</form>
