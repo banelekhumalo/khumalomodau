@@ -1,170 +1,352 @@
 
-   <div *ngIf="!name;else forminfo">
-    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-      <div style="text-align: center;font-family: Roboto;">
-        <br>
-      <h2>Make your Reservation</h2>
+<div *ngIf="!name;else forminfo">
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+    <div style="text-align: center;font-family: Roboto;">
+      <h2>Make Your Reservation</h2>
       <hr style="width: 60%; ">
-    </div>
-          
-        <h4 style="text-align: center;font-family: Roboto;">Personal Details</h4>
-        <div style="margin-left: 20%;">
-          <label>Name</label><br>
-          <input type="text" formControlName="name" placeholder="Enter your name">
-        </div>
-        <div style="margin-left: 20%;">
-          <label>Last Name</label><br>
-          <input type="text" formControlName="lname" placeholder="Enter your last name">
-        </div>
-        <div style="margin-left: 20%">
-          <label for="gender">Gender</label><br>
-  
-          <select name="gender" id="gender">
-            <option>Male</option>
-            <option>Female</option>
-            <option>LGBQTI+</option>
-            </select>
-        </div>
-        <div style="margin-left: 20%;">
-          <label>Date of birth</label><br>
-          <input type="date" formControlName="dob" [max]="getToday()">
-        </div>
-        <div style="margin-left: 20%;">
-          <label>Cellphone</label><br>
-          <input type="tel" formControlName="cellphone" placeholder="Cellphone number" maxlength="10">
-        </div>
-        <div style="margin-left: 20%;">
-          <label>Email</label><br>
-          <input type="email" formControlName="email" placeholder="example@banele.co.za">
-        </div>
-        <div style="margin-left: 20%">
-          <label for="gender">Province</label><br>
-  
-          <select formControlName="gender" id="gender">
-            <option>Gauteng</option>
-            <option>Western Cape</option>
-            <option>KwaZulu NamNdiya Natal</option>
-            <option>Limpopo+</option>
-            <option>Mpumalanga+</option>
-            <option>Free State+</option>
-            <option>Eastern Cape+</option>
-            <option>Northern Cape+</option>
-            <option>North West</option>
-            </select>
-        </div>
-        <br><br>
-  <div style="margin-left: 25%;">
-          <input type="submit" class="btn btn-primary" value="Submit Form" [disabled]="rForm.valid">
-        </div><br><br>
-        </form>
-  </div>
-  <ng-template #forminfo>
-  
-      <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-        
-            
-          <h4 style="text-align: center;font-family: Roboto;">Room Details</h4>
-  
-          <div style="margin-left: 30%;">
-            <label>Checkin Date</label><br>
-            <input type="date" formControlName="checkin" [min]="getToday()">
-          </div><br>
-          <div style="margin-left: 30%;">
-            <label>Checkout </label><br>
-            <input type="date" formControlName="checkout" [min]="getToday()">
-          </div><br>
-          <div style="margin-left: 30%">
-            <label for="suiteType">Suite Type</label><br>
-  
-            <select name="suiteType" id="suiteType">
-              <option>None</option>
-              <option>Deluxe Suite</option>
-              <option>Standard Suite</option>
-              <option>Superior Suite</option>
-  
-              </select>
-          </div>
-          <br>
-          <div style="margin-left: 30%;">
-            <label>Room </label><br>
-            <input type="number" formControlName="room">
-          </div><br>
-  
-          <hr><br>
-         
-        
-            <h4 style="text-align: center;font-family: Roboto;">Bank Details</h4>
-          <div style="margin-left: 30%">
-            <label for="bankname">BANK</label><br>
-  
-            <select name="bankname" id="bankname">
-              <option>None</option>
-              <option>FNB</option>
-              <option>Standard Bank</option>
-              <option>Absa</option>
-              <option>Capitec</option>
-              <option>African Bank</option>
-              </select>
-          </div>
-          <div style="margin-left: 30%;">
-            <label>Account Holder </label><br>
-            <input type="text" formControlName="accholder" placeholder="Name and Surname">
-          </div>
-          <div style="margin-left: 30%;">
-            <label>Card Number </label><br>
-            <input type="number" formControlName="cardno" placeholder="0000 0000 0000 0000">
-          </div>
-          <div style="margin-left: 30%;">
-            <label>CVV </label><br>
-            <input type="number" formControlName="cvv" placeholder="123">
-          </div><br>
-          <div style="margin-left: 30%;">
-            <label>Expiry Date </label><br>
-            <input type="date" formControlName="cvv" [min]="getToday()">
-          </div><br>
-          <div style="margin-left: 25%;">
-            <input type="submit" class="btn btn-primary" value="Submit Form" [disabled]="rForm.valid">
-          </div><br><br>
-          </form>
-  
-  
-  </ng-template>
-  <!-------------Separate------------------>
-  <br><br><br><br><br><br>
-  <div style="background-color: lightgray; color: black; font-size: medium;font-family: roboto;">
-    <div style="margin-left:15%; color: black;font-family: roboto;">
-    <p>We thank you making your quotation, you will receive the email within 15min after we have proccessed your request!</p><br></div>
-    <div style="margin-left:15%; color: black;font-family: roboto;">
-      <p style="font-size: medium;">These are the infomation we got from you, if there are other changes feel free to contact info@khumalomodau.co.za;
-      </p><br>
-      <div style="margin-right: 40%;font-family: roboto;">
-        <h4><b>Personal Details</b></h4>
-        <p>Name:{{name}}</p>
-      <p>Last Name:{{lname}}</p>
-      <p>Gender:{{gender}}</p>
-      <p>Date of Birth:{{dob}}</p>
-      <p>Cellphone:{{cellphone}}</p>
-      <p>Email:{{email}}</p>
-      <p>Province:{{province}}</p>
       </div>
-          <div  style="color: black;margin-right: 40%;font-family: roboto;">
-            <h4><b>Hotel Specification</b></h4>
-            <p>Checkin date:{{checkin}}</p><br>
-            <p>Checkout date:{{checkout}}</p><br>
-            <p>Suite Type:{{suiteType}}</p><br>
-            <p>Number of rooms:{{room}}</p><br>
-  
-          </div>
-  
-          <div style="color: black;margin-right: 40%; font-family: roboto;">
-            <h4><b>Bank Details</b></h4>
-            <p> Bank Name:{{bankname}}</p><br>
-            <p> Account Holder:{{accholder}}</p><br>
-            <p>Card Number:{{cardno}}</p><br>
-            <p>CVV:{{cvv}}</p><br>
-            <p>Expiry Date: {{exDate}}</p>
-  
-          </div>
+      <h4 style="text-align: center;font-family: Roboto;">Personal Details</h4><br>
+      <div class="section">
+        <div style="margin-left: 20%; font-family: Roboto;">
+        <label>Name</label><br>
+        <input type="text" formControlName="name" placeholder="Enter your name" required>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+        This is required
+      </div>
+      <div style="margin-left: 20%; font-family: Roboto;">
+        <label>Last Name</label><br>
+        <input type="text" formControlName="lname" placeholder="Enter your last name" required>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['lname'].valid && rForm.controls['lname'].touched">
+        Last name is required
+      </div>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label for="gender">Gender</label><br>
+
+        <select type="text" name="gender" id="gender" required>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Rather not say</option>
+          </select>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['gender'].valid && rForm.controls['gender'].touched">
+        Choose one option
+      </div>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label>Date of birth</label><br>
+        <input type="date" formControlName="dob" required>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['dob'].valid && rForm.controls['dob'].touched">
+        Select the right date
+      </div>
+
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label>Cellphone</label><br>
+        <input type="tel" formControlName="cellphone" placeholder="Cellphone number"required maxlength="10">
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['cellphone'].valid && rForm.controls['cellphone'].touched">
+        Minimum of ten characters.
+      </div>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label>Email</label><br>
+        <input type="email" formControlName="email" placeholder="info@k_m-hotel.com"required>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+        This field must be filled, correct format for example info@khumalomodauhotel.co.za
+      </div>
+      <div style="margin-left: 20%;font-family: Roboto">
+        <label for="gender">Province</label><br>
+
+        <select type="text" formControlName="province" id="province" required>
+          <option>Gauteng</option>
+          <option>Western Cape</option>
+          <option>KwaZulu NamNdiya Natal</option>
+          <option>Limpopo</option>
+          <option>Mpumalanga</option>
+          <option>Free State</option>
+          <option>Eastern Cape</option>
+          <option>Northern Cape</option>
+          <option>North West</option>
+          </select>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['province'].valid && rForm.controls['province'].touched">
+        Choose a province
+      </div>
+      </div>
+      <br><br>
+
+      <div style="margin-left: 15%;width:20%;font-family: Roboto">
+        <input type="submit" class="btn btn-success btn-block" value="Submit Form" [disabled]="rForm.valid">
+      </div><br><br>
+  </form>
+</div>
+
+
+
+ <br><br>
+
+
+
+
+<ng-template #forminfo>
+
+
+
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+
+    <div style="text-align: center;font-family: Roboto;">
+
+      <h2>Welcome {{name}}</h2>
+
+      <hr style="width: 60%; ">
+
+      </div>
+
+     <h4 style="text-align: center;font-family: Roboto;">Room Details</h4><br>
+
+<div class="form-row">
+
+      <div class="col">
+
+      <div style="font-family: Roboto">
+
+        <input type="date" class="form-control" placeholder="Check-in Date" formControlName="checkin" [min]="getToday()" required>
+
+      </div></div>
+      <div class="alert" *ngIf="!rForm.controls['checkin'].valid && rForm.controls['checkin'].touched">
+        Choose the right check in date...
+      </div>
+
+      <br>
+
+      <div class="col">
+
+
+      <div style="font-family: Roboto">
+
+       <input type="date" class="form-control" placeholder="Check-out Date" formControlName="checkout" [min]="getToday()" required>
+
+      </div></div></div>
+      <div class="alert" *ngIf="!rForm.controls['checkout'].valid && rForm.controls['checkout'].touched">
+        Choose the right check out date...
+      </div>
+
+      <br>
+
+      <div class="form-row">
+
+        <div class="col">
+
+        <div style="font-family: Roboto">
+
+        <select type="text"  class="form-control" name="suiteType" placeholder="Suite Type" id="suiteType" required>
+
+          <option>Suite</option>
+
+          <option>Deluxe Suite</option>
+
+          <option>Standard Suite</option>
+
+          <option>Superior Suite</option>
+
+        </select>
+        <div class="alert" *ngIf="!rForm.controls['suiteType'].valid && rForm.controls['suiteType'].touched">
+          Choose at least one
+        </div>
+        
+
+      </div></div>
+
+      
+
+     <div class="col">
+
+      <div style="font-family: Roboto">
+
+      <input type="number"  class="form-control"  placeholder="Number Of Rooms" formControlName="room" required maxlength="2">
+
+      <div class="alert" *ngIf="!rForm.controls['room'].valid && rForm.controls['room'].touched">
+
+        Choose the number of room(s)
+
+      </div></div></div></div><br><br>
+
+
+
+      <hr><br>
+
+      <h4 style="text-align: center;font-family: Roboto;">Banking Details</h4><br>
+
+      <div class="form-row">
+
+        <div class="col">
+
+        <div style="font-family: Roboto">
+
+        <select type="text"  class="form-control"  placeholder="Bank" name="bankname" id="bankname" required>
+
+          <option>None</option>
+
+          <option>FNB</option>
+
+          <option>Standard Bank</option>
+
+          <option>Tyme Bank</option>
+
+          <option>Absa</option>
+
+          <option>Capitec</option>
+
+          <option>African Bank</option>
+
+          </select>
+
+      </div></div>
+      <div class="alert" *ngIf="!rForm.controls['bankname'].valid && rForm.controls['bankname'].touched">
+       Choose a bank
+      </div>
+      <div class="col">
+
+      <div style="font-family: Roboto">
+
+        <input type="text"  class="form-control" formControlName="accholder" placeholder="Acc Holder Name" required>
+
+      </div></div></div>
+      <div class="alert" *ngIf="!rForm.controls['accholder'].valid && rForm.controls['accholder'].touched">
+        Enter the account holder
+      </div>
+
+      <br>
+
+      <div class="form-row">
+
+      <div class="col">
+
+      <div style=" font-family: Roboto">
+
+        <input type="number"  class="form-control" formControlName="cardno" placeholder="Enter Card Number" required maxlength="16">
+
+      </div></div>
+      <div class="alert" *ngIf="!rForm.controls['cardno'].valid && rForm.controls['cardno'].touched">
+        Enter the card number, 16!
+      </div>
+
+      <div class="col">
+
+      <div style="font-family: Roboto">
+
+        <input type="number"  class="form-control" formControlName="cvv" placeholder="Enter CVV" required  maxlength="3">
+
+      </div>
+
+    </div></div>
+    <div class="alert" *ngIf="!rForm.controls['cvv'].valid && rForm.controls['cvv'].touched">
+      Enter the cvv, only the last three numbers!
     </div>
+
+      <br>
+
+      <div class="form-row">
+
+      <div class="col">
+
+      <div style="font-family: Roboto">
+
+       <input type="date" class="form-control" placeholder="Enter Expiry Date" formControlName="exDate" [min]="getToday()" required>
+
+      </div></div></div>
+      <div class="alert" *ngIf="!rForm.controls['exDate'].valid && rForm.controls['exDate'].touched">
+        Choose the right date...
+      </div>
+
+      <br><br>
+
+      <div style="margin-left: 25%; width:50%; font-family: Roboto">
+
+        <input type="submit" class="btn btn-success btn-block" value="Submit Forms" [disabled]="rForm.valid">
+
+      </div><br><br>
+
+      </form>
+
+
+
+
+
+</ng-template>
+
+<!-------------Separate------------------>
+
+<br><br><br><br><br>
+
+<div style="background-color: lightgray; color: black; font-size: medium; font-family: Roboto;">
+
+<p>We thank you making your quotation, you will receive the email within 15min after we have proccessed your request!</p><br>
+
+<div style="margin-left:15%;">
+
+  <p style="font-family: Roboto;font-size: medium;">These are the infomation we got from you, if there are other changes feel free to contact info@khumalomodau.co.za;
+
+  </p><br>
+
+  <div style="background-color: lightgray;margin-right: 40%; font-family: Roboto;">
+
+    <h4><b>Personal Details</b></h4>
+
+    <p>Name:{{name}}</p>
+
+  <p>Last Name:{{lname}}</p>
+
+  <p>Date of Birth:{{dob}}</p>
+
+  <p>Cellphone:{{cellphone}}</p>
+
+  <p>Email:{{email}}</p>
+
+  <br><br>
+
   </div>
-  <div class="btn btn-primary" style=" width: 20%;" routerLink="/" routerLinkActive="active">RESET</div>
+
+      <div  style="background-color: lightgrey;color: black;margin-right: 40%; font-family: Roboto;">
+
+        <h4><b>Hotel Specification</b></h4>
+
+        <p>Checkin date:{{checkin}}</p><br>
+
+        <p>Checkout date:{{checkout}}</p><br>
+
+        
+
+        <p>Number of rooms:{{room}}</p><br>
+
+
+<br><br>
+      </div>
+
+
+
+      <div style="background-color: lightgrey;color:black;margin-right: 40%; font-family: Roboto;">
+
+        <h4><b>Bank Details</b></h4>
+
+        <p> Bank Name:******</p><br>
+
+        <p> Account Holder:{{accholder}}</p><br>
+
+        <p>Card Number:{{cardno}}</p><br>
+
+        <p>CVV:***</p><br>
+
+        <p>Expiry Date: ____/__/__</p>
+
+
+
+      </div>
+
+</div>
+
+</div>
+
+<div class="btn btn-dark btn-block" style="color: #fff; width: 40%;" routerLink="/" routerLinkActive="active">RESET</div>
+
