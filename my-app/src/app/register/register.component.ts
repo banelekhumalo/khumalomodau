@@ -73,8 +73,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
- getToday(): string{
-return new Date().toISOString().split('T')[0]
-}
+  getToday(): string{
+  return new Date().toISOString().split('T')[0]
+  }
 
 }
