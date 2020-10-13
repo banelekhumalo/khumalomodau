@@ -37,19 +37,19 @@ export class RegisterComponent implements OnInit {
           'name':[null,[Validators.required,Validators.minLength(2)]],
           'lname': [null,[Validators.required,Validators.minLength(2)]],
           'gender':[null,Validators.required],
-          'dob':[null,Validators.required],
+          'dob':['',Validators.required],
           'cellphone':[null,[Validators.required,Validators.minLength(10)]],
           'email':[null,[Validators.required,Validators.minLength(10)]],
-          'province': [null,Validators.required],
+          'province': ['',Validators.required],
           'checkin': [null,Validators.required],
           'checkout':[null,Validators.required],
-          'suiteType':[null,Validators.required],
+          'suiteType':['',Validators.required],
           'room':[null,[Validators.required,Validators.maxLength(1)]],
           'bankname':[null,[Validators.required,Validators.minLength(2)]],
           'accholder':[null,[Validators.required,Validators.minLength(2)]],
           'cardno':[null,[Validators.required,Validators.minLength(16),Validators.maxLength(16)]],
           'cvv':[null,[Validators.required,Validators.minLength(3),Validators.maxLength(3)]],
-          'exDate': [null,Validators.required]
+          'exDate': ['',Validators.required]
         });
     }
 
